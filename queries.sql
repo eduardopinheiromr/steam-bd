@@ -106,7 +106,7 @@ WHERE
 	LENGTH(SUPORTE.SUPPORT_URL) > 0
 LIMIT 5;
 
--- top 10 jogos com valor acima de 100 reais?
+-- Top 10 jogos com valor acima de 100 reais
 SELECT 
 	STEAM.`NAME` Jogo,
 	STEAM.PRICE 'Preço em $'
@@ -117,7 +117,7 @@ WHERE
 ORDER BY 
 	STEAM.PRICE LIMIT 10;
 
--- top 10 jogos com valor abaixo de 10 reais
+-- Top 10 jogos com valor abaixo de 10 reais
 
 SELECT 
 	STEAM.`NAME` Jogo,
@@ -128,7 +128,7 @@ WHERE
 	PRICE <= 10
 ORDER BY STEAM.PRICE DESC LIMIT 10;
 
--- Classificar as avaliações positivas em otimo, bom, regular e ruim
+-- View pra classificar as avaliações positivas em otimo, bom, regular e ruim
 
 CREATE 
     ALGORITHM = UNDEFINED 
@@ -188,5 +188,18 @@ FROM
 GROUP BY 
 	STEAM.DEVELOPER 
 ORDER BY MEDIA_PREÇO DESC LIMIT 10;
+
+-- Os jogos que tiveram a avaliação "ótima"
+
+SELECT 
+    `name` AS Jogo,
+CASE 
+	WHEN positive_ratings > 250500 THEN 'ÓTIMO'
+END 'Avaliações Positivas'
+FROM
+    steam
+WHERE
+    positive_ratings > 250500 
+ORDER BY positive_ratings DESC;
 	
     
