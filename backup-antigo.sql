@@ -152,7 +152,7 @@ VIEW `VW_AVALIACAO` AS
             WHEN (`STEAM`.`positive_ratings` > 250500) THEN 'ÓTIMO'
             WHEN
                 ((`STEAM`.`positive_ratings` > 52000)
-                    AND (`STEAM`.`positive_ratings` < 150000))
+                    AND (`STEAM`.`positive_ratings` < 250499))
             THEN
                 'BOM'
             WHEN
