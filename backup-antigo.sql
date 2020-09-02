@@ -1,4 +1,16 @@
 
+SELECT 
+	`name` as Nome, positive_ratings AS `Avaliações Positivas` 
+FROM 
+	steam 
+WHERE 
+	positive_ratings > 250500 
+ORDER BY 
+	positive_ratings 
+DESC;
+
+
+
 -- Pequena descrição dos 3 primeiros jogos mais baratos 
 
 SELECT 
